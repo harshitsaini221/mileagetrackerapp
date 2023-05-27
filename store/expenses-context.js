@@ -151,15 +151,6 @@ function ExpensesContextProvider({ children }) {
     return totalAmount;
   };
 
-  const sortExpensesByDate = () => {
-    const sortedExpenses = [...expensesState].sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateA - dateB;
-    });
-    setExpenses(sortedExpenses);
-  };
-
   const getKthMonthYearNames = (k) => {
     const monthNames = [
       "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
@@ -171,7 +162,7 @@ function ExpensesContextProvider({ children }) {
     const currentYear = currentDate.getFullYear();
   
     const targetMonthIndex = (currentMonth - k + 12) % 12;
-    const targetYear = targetMonthIndex > currentMonth ? currentYear - 1 : currentYear;;
+    const targetYear = targetMonthIndex > currentMonth ? currentYear - 1 : currentYear;
   
     const targetMonthName = monthNames[targetMonthIndex];
     const targetYearName = targetYear.toString();
@@ -196,7 +187,6 @@ function ExpensesContextProvider({ children }) {
     fetchLastPricePerLitre: fetchLastPricePerLitre,
     lastGas: lastGas,
     amountSpentInKthMonth: amountSpentInKthMonth,
-    sortExpensesByDate: sortExpensesByDate,
     getKthMonthYearNames: getKthMonthYearNames,
   };
 

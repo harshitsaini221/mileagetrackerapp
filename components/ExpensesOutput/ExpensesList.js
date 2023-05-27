@@ -1,5 +1,6 @@
 import { FlatList, Text } from "react-native";
 import ExpenseItem from "./ExpenseItem";
+import React, { useEffect, useState } from "react";
 
 function renderExpenseItem(itemData) {
   // console.log(itemData.item);
@@ -8,6 +9,25 @@ function renderExpenseItem(itemData) {
 }
 
 function ExpensesList({ expenses }) {
+  const [updatedData, setUpdatedData] = useState(expenses);
+
+  useEffect(() => {
+    const newData = sortExpensesByDate(expenses);
+    setUpdatedData(newData);
+  }, []);
+
+  const sortExpensesByDate = (expenses) => {
+    console.log("AAAAAAAAA ", expenses);
+    const sortedExpenses = expenses.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      console.log(dateA);
+      console.log(dateB);
+      return dateB - dateA;
+    });
+    return sortedExpenses;
+  };
+
   const groupExpensesByMonth = (expenses) => {
     result = new Map();
     expenses.forEach(e=> {
@@ -38,7 +58,7 @@ function ExpensesList({ expenses }) {
     //   return result;
     // }, new Map());
   };
-  const groupedExpenses = groupExpensesByMonth(expenses);
+  const groupedExpenses = groupExpensesByMonth(updatedData);
   const res = []
   
   let i = 0;

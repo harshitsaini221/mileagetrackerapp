@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import { getFormattedDate } from "../../util/date";
 import GroupedExpenseItem from "./GroupedExpenseItem";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { useContext } from "react";
+import { ExpensesContext } from "../../store/expenses-context";
+
 // const GroupedExpense = ({ groupedExpenses }) => {
 //   const renderExpenses = () => {
 //     const uniqueExpenses = new Set();
@@ -41,6 +44,11 @@ function renderExpenseItem(itemData) {
 const GroupedExpense = ({ groupedExpenses }) => {
   // const x = groupedExpenses.entries();
 
+  // console.log('H');
+  // console.log(groupedExpenses);
+  // console.log('S');
+  // console.log(updatedData);
+
   const monthName = [
     "JANUARY",
     "FEBRUARY",
@@ -56,7 +64,7 @@ const GroupedExpense = ({ groupedExpenses }) => {
     "DECEMBER",
   ];
 
-  console.log(groupedExpenses);
+  //console.log(groupedExpenses);
   const indexMonth = groupedExpenses[0].date.getMonth();
   const nameMonth = monthName[indexMonth];
   const indexYear = new Date(getFormattedDate(groupedExpenses[0].date));

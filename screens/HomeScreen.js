@@ -70,8 +70,8 @@ const HomeScreen = () => {
   const arr = [];
   for(let i = 2; i<=5;i++){
     const { targetMonthName, targetYearName } = expensesCtx.getKthMonthYearNames(i);
-    arr.push(targetMonthName);
-    arr.push(targetYearName);
+    arr.push(targetMonthName); // -> even idexes: monthNames, 0 -> 2, 2 -> 3, 4-> 4
+    arr.push(targetYearName); // -> odd indexes: year
   }
 
   return (

@@ -16,7 +16,8 @@
     ],
     "ios": {
       "buildNumber": "1.1.1",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.firebase.mileagetracker"
     },
     "android": {
       "versionCode": 2,

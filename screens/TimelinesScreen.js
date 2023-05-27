@@ -13,7 +13,6 @@ function TimelinesScreen() {
   // console.log(expensesCtx);
 
   useEffect(() => {
-    expensesCtx.sortExpensesByDate();
     async function getExpenses() {
       setIsFetching(true);
       let expenses;

@@ -16,7 +16,7 @@
 
 //   return (
 //     <Timeline
-//       data={data}
+//       data={data} title, desc, time
 //       circleSize={20}
 //       circleColor="#fff"
 //       lineColor="#808080"

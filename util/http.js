@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BACKEND_URL =
-  "https://mileage-1144a-default-rtdb.asia-southeast1.firebasedatabase.app/";
+  "Enter Your DB Link Here (I Used Firebase)";
 
 export async function storeExpense(expenseData) {
   const response = await axios.post(
